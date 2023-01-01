@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body id ="body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+
+
+            
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="text" placeholder="Search"
+                    aria-label="Search"id='Search'>
+               
+            </form>
+        </div>
+    </nav>
+    <div class="container1" id="baly">
+        <img id="image" src="/bali.png" width="193" height="300">
+        <br>
+        <label id="label1" class="ml-4 my-2">Bali Island</label>
+        <br>
+        <button onclick="location.href = '/bali';" id="bali" class="btn btn-secondary ml-3"> View </button>
+    </div>
+        <div class="container2" id="sant">
+            <img id="image" src="/santorini.png" width="193" height="300">
+            <br>
+            <label id ="label2" class="ml-4 my-2">Santorini Island</label>
+            <br>
+            <button onclick="location.href = '/santorini';" id="santorini" class="btn btn-secondary ml-3"> View </button>
+        </div>
+        <div class="container1"id="paris">
+            <img id="image" src="/paris.png" width="193" height="300">
+            <br>
+            <label id="label1" class="ml-4 my-2">Paris</label>
+            <br>
+            <button onclick="location.href = '/paris';" id="paris" class="btn btn-secondary ml-3"> View </button>
+        </div>
+        <div class="container2" id="rome">
+            <img id="image" src="/rome.png" width="193" height="300">
+            <br>
+            <label id ="label2" class="ml-4 my-2">Rome</label>
+            <br>
+            <button onclick="location.href = '/rome';" id="rome" class="btn btn-secondary ml-3"> View </button>
+        </div>
+        
+          </div>
+          <div class="container5" id="inca">
+            <img id="image" src="/inca.png" width="193" height="300">
+            <br>
+            <label id="label1" class="ml-4 my-2">Inca Trail to Machu Picchu</label>
+            <br>
+            <button onclick="location.href = '/inca';" id="inca" class="btn btn-secondary ml-3"> View </button>
+        </div>
+        <div class="container6" id="anna">
+            <img id="image" src="/annapurna.png" width="193" height="300">
+            <br>
+            <label id ="label2" class="ml-4 my-2">Annapurna Circuit</label>
+            <br>
+            <button onclick="location.href = '/annapurna';" id="annapurna" class="btn btn-secondary ml-3"> View </button>
+        </div>
+    <script>
+
+
+
+    var bali=1;
+    var sant=1;
+    var rome =1;
+    var paris=1;
+    var anna=1;
+    var inca=1;
+        document.getElementById('Search').addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    console.log(searchString);
+    
+    
+    if(!"bali island".includes(searchString)){
+        if(bali==1){
+        console.log()
+        document.getElementById('baly').remove();
+        
+       bali=0;
+    }}
+    if("bali island".includes(searchString)){
+        if(bali==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container1" id="baly"><img id="image" src="/bali.png" width="193" height="300"> <br> <label id="label1" class="ml-4 my-2">Bali Island</label><br><button onclick="location.href = "/bali";" id="bali" class="btn btn-secondary ml-3"> View </button></div>'
+        bali=1
+    }
+       document.w
+    }
+    
+
+
+if(!"santorini island".includes(searchString)){
+        if(sant==1){
+        document.getElementById("sant").remove();
+      
+        
+       sant=0;
+    }}
+    if("santorini island".includes(searchString)){
+        if(sant==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container2"> <img id="image" src="/santorini.png" width="193" height="300"><br> <label id ="label2" class="ml-4 my-2">Santorini Island</label> <br><button onclick="location.href = "/santorini";" id="santorini" class="btn btn-secondary ml-3"> View </button></div>'
+   sant=1;
+    }
+       
+    }
+    
+        
+
+
+        if(!"rome".includes(searchString)){
+        if(rome==1){
+        document.getElementById("rome").remove();
+      
+        
+       rome=0;
+    }}
+    if("rome".includes(searchString)){
+        if(rome==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container3"> <img id="image" src="/rome.png" width="193" height="300"><br> <label id ="label3" class="ml-4 my-2">Santorini Island</label> <br><button onclick="location.href = "/rome";" id="rome" class="btn btn-secondary ml-3"> View </button></div>'
+   rome=1;
+    }
+       
+    }
+    
+
+
+    if(!"paris".includes(searchString)){
+        if(paris==1){
+        document.getElementById("paris").remove();
+      
+        
+       paris=0;
+    }}
+    if("paris".includes(searchString)){
+        if(paris==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container4"> <img id="image" src="/paris.png" width="193" height="300"><br> <label id ="label4" class="ml-4 my-2">Santorini Island</label> <br><button onclick="location.href = "/paris";" id=paris" class="btn btn-secondary ml-3"> View </button></div>'
+   paris=1;
+    }
+       
+    }
+ 
+
+
+    if(!"Annapurna Circuit".includes(searchString)){
+        if(anna==1){
+        document.getElementById("anna").remove();
+      
+        
+       anna=0;
+    }}
+    if("Annapurna Circuit".includes(searchString)){
+        if(anna==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container5"> <img id="image" src="/annapurna.png" width="193" height="300"><br> <label id ="label5" class="ml-4 my-2">Santorini Island</label> <br><button onclick="location.href = "/annapurna";" id="annapurna" class="btn btn-secondary ml-3"> View </button></div>'
+   anna=1;
+    }
+}
+
+    if(!"Inca Trail to Machu Picchu".includes(searchString)){
+        if(inca==1){
+        document.getElementById("inca").remove();
+      
+        
+       inca=0;
+    }}
+    if("Inca Trail to Machu Picchu".includes(searchString)){
+        if(inca==0){
+        document.getElementById("body").innerHTML +=
+        '<div class="container6"> <img id="image" src="/inca.png" width="193" height="300"><br> <label id ="label5" class="ml-4 my-2">Santorini Island</label> <br><button onclick="location.href = "/inca";" id="inca" class="btn btn-secondary ml-3"> View </button></div>'
+inca=1;
+    }
+
+
+
+
+
+
+
+ } })
+
+
+
+
+        </script>
+
+
+</body>
+</html>
