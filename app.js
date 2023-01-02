@@ -7,7 +7,7 @@ const { title } = require('process');
 var http=require('http')
 const session = require('cookie-session');
 
-
+const alert=require('alert');
 var flag=0;
 var users=""
 var app = express();
@@ -257,18 +257,20 @@ res.render("registersed")
     
     connect();
     module.exports = app; 
-    async function connect(){'/'
+    async function connect(){
       const client =new MongoClient( "mongodb+srv://omarika:hadama13579@cluster0.migf4pa.mongodb.net/?retryWrites=true&w=majority")
       var db= client.db("project");
       const collection=db.collection(users)
-     
+   
       try {
         await client.connect();
      
       } catch (error) {
         console.error({error});
       }
-
+      if (await collection.findOne({name:"bali"})!=null){
+        alert("already added");
+       }
       collection.insertOne({name:"bali"});
   }
 
@@ -285,6 +287,8 @@ app.post(("/wanttogosant"),function(req,res){
     const client =new MongoClient( "mongodb+srv://omarika:hadama13579@cluster0.migf4pa.mongodb.net/?retryWrites=true&w=majority")
     var db= client.db("project");
     const collection=db.collection(users)
+
+    
    
     try {
       await client.connect();
@@ -292,7 +296,10 @@ app.post(("/wanttogosant"),function(req,res){
     } catch (error) {
       console.error({error});
     }
-
+    if (await collection.findOne({name:"sant"})!=null){
+      alert("already added");
+     }
+   
     collection.insertOne({name:"sant"});
 }
 
@@ -316,7 +323,9 @@ app.post(("/wanttogorome"),function(req,res){
     } catch (error) {
       console.error({error});
     }
-
+    if (await collection.findOne({name:"rome"})!=null){
+      alert("already added");
+     }
     collection.insertOne({name:"rome"});
 }
 
@@ -340,7 +349,9 @@ app.post(("/wanttogoparis"),function(req,res){
     } catch (error) {
       console.error({error});
     }
-
+    if (await collection.findOne({name:"paris"})!=null){
+      alert("already added");
+     }
     collection.insertOne({name:"paris"});
 }
 
@@ -363,9 +374,12 @@ app.post(("/wanttogoinca"),function(req,res){
    
     } catch (error) {
       console.error({error});
-    }
+    }if ( await collection.findOne({name:"inca"})!=null){
+      alert("already added");
+     }
 
     collection.insertOne({name:"inca"});
+    
 }
 
 
@@ -390,7 +404,9 @@ app.post(("/wanttogoanna"),function(req,res){
     } catch (error) {
       console.error({error});
     }
-
+    if (await collection.findOne({name:"anna"})!=null){
+      alert("already added");
+     }
     collection.insertOne({name:"anna"});
 }
 
